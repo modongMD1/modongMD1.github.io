@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,6 +28,9 @@
     <link rel="icon" href="/assets/logo2.png">
   
   <link rel="stylesheet" type="text/css" href="/./main.0cf68a.css">
+  
+    <link rel="stylesheet" type="text/css" href="/./avatarrotation.css">
+  
   <style type="text/css">
   
     #container.show {
@@ -41,9 +46,9 @@
 <body>
   <div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
-    <div class="left-col" q-class="show:isShow">
+    <div class="left-col" q-class="show:isShow" style="background: url(/assets/beijin.jpg)no-repeat 100%;background-size:cover;">
       
-<div class="overlay" style="background: #4d4d4d"></div>
+<div class="overlay" style="background: rgba(0,0,0,0)"></div>
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
@@ -98,7 +103,7 @@
     <div class="mid-col" q-class="show:isShow,hide:isShow|isFalse">
       
 <nav id="mobile-nav">
-  	<div class="overlay js-overlay" style="background: #4d4d4d"></div>
+  	<div class="overlay js-overlay" style="background: rgba(0,0,0,0)"></div>
 	<div class="btnctn js-mobile-btnctn">
   		<div class="slider-trigger list" q-on="click: openSlider(e)"><i class="icon icon-sort"></i></div>
 	</div>
@@ -357,6 +362,9 @@
     </div>
   </div>
 </footer>
+
+<!--页面点击小红心-->
+<script type="text/javascript" src="/love.js"></script>
     </div>
     <script>
 	var yiliaConfig = {
