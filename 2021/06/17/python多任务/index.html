@@ -8,14 +8,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Archives: 2021/6 | Free life</title>
+  <title>python多任务 | Free life</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Free life">
-<meta property="og:url" content="http://example.com/archives/2021/06/index.html">
+  <meta name="description" content="多任务编程">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python多任务">
+<meta property="og:url" content="http://example.com/2021/06/17/python%E5%A4%9A%E4%BB%BB%E5%8A%A1/index.html">
 <meta property="og:site_name" content="Free life">
+<meta property="og:description" content="多任务编程">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-06-17T01:34:12.000Z">
+<meta property="article:modified_time" content="2021-06-17T01:35:11.708Z">
 <meta property="article:author" content="魔动MD">
+<meta property="article:tag" content="py多任务">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Free life" type="application/atom+xml">
@@ -155,23 +160,19 @@
           </div>
           <div id="js-content" class="content-ll">
             
+<article id="post-python多任务" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      python多任务
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2021" class="archive-year">2021</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
+
+        
+        
 <span id="busuanzi_container_page_pv" 
 style='display:none' class="archive-article-date">
     <i class="icon-smile icon"></i> 阅读数：
@@ -180,16 +181,104 @@ style='display:none' class="archive-article-date">
 <a href="/2021/06/17/python%E5%A4%9A%E4%BB%BB%E5%8A%A1/" class="archive-article-date">
   	<time datetime="2021-06-17T01:34:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-06-17</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/06/17/python%E5%A4%9A%E4%BB%BB%E5%8A%A1/">python多任务</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="多任务编程"><a href="#多任务编程" class="headerlink" title="多任务编程"></a>多任务编程</h1><span id="more"></span>
 
-        <div class="article-info info-on-right">
-          
+<h3 id="1-vim编辑器"><a href="#1-vim编辑器" class="headerlink" title="1 vim编辑器"></a>1 vim编辑器</h3><p>一开始进入的是 命令模式</p>
+<p>命令模式 i == 编辑模式 esc == 命令模式</p>
+<p>命令模式 ：== 末行模式 esc == 命令模式</p>
+<h3 id="2-安装及卸载Linux内软件"><a href="#2-安装及卸载Linux内软件" class="headerlink" title="2 安装及卸载Linux内软件"></a>2 安装及卸载Linux内软件</h3><p>安装命令：sudo apt-get install 名字</p>
+<p>卸载命令：sudo apt-get remove 名字</p>
+<h3 id="3-多任务"><a href="#3-多任务" class="headerlink" title="3 多任务"></a>3 多任务</h3><p>多任务：在同一时间内执行多个任务</p>
+<p>多任务的目的：多任务的最大好处是<strong>充分利用CPU资源，提高程序的执行效率</strong></p>
+<p><strong>并发：</strong></p>
+<p>在一段时间内<strong>交替</strong>去执行多个任务(只有一个CPU)</p>
+<p><strong>并行：</strong></p>
+<p>在<strong>同一时</strong>刻执行多个任务(多核CPU)</p>
+<h3 id="4-多进程-多任务的实现方式"><a href="#4-多进程-多任务的实现方式" class="headerlink" title="4 多进程(多任务的实现方式)"></a>4 多进程(多任务的实现方式)</h3><p>进程：在&lt;运行&gt;程序就是进程</p>
+<p>进程：分配资源的最小单位</p>
+<p>线程：使用资源的最小单位</p>
+<h6 id="多进程的使用步骤"><a href="#多进程的使用步骤" class="headerlink" title="多进程的使用步骤"></a>多进程的使用步骤</h6><p>1 导入模块(multiprocesing)</p>
+<p>2 创建<strong>子进程</strong>(Process)</p>
+<p>3 开启子进程(start)</p>
+<h6 id="进程编号"><a href="#进程编号" class="headerlink" title="进程编号"></a>进程编号</h6><p>目的：知道子进程是由哪个主进程创建的(子进程需要主进程回收资源)</p>
+<p><strong>os.getpid()</strong> 表示获取当前进程编号</p>
+<p><strong>os.getppid()</strong> 表示获取当前父进程编号</p>
+<h6 id="获取进程名字-不需要记忆"><a href="#获取进程名字-不需要记忆" class="headerlink" title="获取进程名字(不需要记忆)"></a>获取进程名字(不需要记忆)</h6><p>1 进程名字</p>
+<p>​            my——dance = multiprocesing.Process(target=dance,name=’老王’)</p>
+<p>2 获取进程名字</p>
+<p>​            print(multiprocesing.current_process())</p>
+<h6 id="执行带有参数的任务"><a href="#执行带有参数的任务" class="headerlink" title="执行带有参数的任务"></a>执行带有参数的任务</h6><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span>  multiprocessing</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">deance</span>(<span class="params">count</span>):</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(count):</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;跳舞&#x27;</span>)</span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    <span class="comment">#方式一：args：以元组传递参数</span></span><br><span class="line">    my_deance = multiprocessing.Process(target=deance,args=(<span class="number">5</span>,))</span><br><span class="line">    <span class="comment">#方式二：kwargs:以字典来传递参数</span></span><br><span class="line">    my_deance = multiprocessing.Process(target=deance,kwargs=&#123;<span class="string">&#x27;count&#x27;</span>:<span class="number">5</span>&#125;)</span><br><span class="line">    my_deance.start()</span><br></pre></td></tr></table></figure>
+
+<h6 id="多进程的注意点"><a href="#多进程的注意点" class="headerlink" title="多进程的注意点"></a>多进程的注意点</h6><p>1 进程是分配资源的最小的单位==&gt;每个进程(主进程 子进程)都会有自己的独立的空间</p>
+<p>​            结论：<strong>进程之间不共享全局变量</strong></p>
+<p>2 结论：主进程默认会等待子进程结束之后在结束</p>
+<p>​            让子进程随着主进程的结束而结束</p>
+<p>​        （1）守护进程(在start之前设置)</p>
+<p>​                        my_func.daemon = True</p>
+<p>​        （2）手动结束子进程</p>
+<p>​                        my_func.terminate()</p>
+<h3 id="5-多线程-多任务的实现方式"><a href="#5-多线程-多任务的实现方式" class="headerlink" title="5 多线程(多任务的实现方式)"></a>5 多线程(多任务的实现方式)</h3><p><strong>进程和线程的从属关系</strong></p>
+<p>​            线程是使用资源的最小单位 ==&gt; 依附于进程</p>
+<h6 id="多线程的使用"><a href="#多线程的使用" class="headerlink" title="多线程的使用"></a>多线程的使用</h6><p>1 import threading</p>
+<p>2 threading.Thread(target=dance)</p>
+<p>3 start()</p>
+<h6 id="多线程的注意点"><a href="#多线程的注意点" class="headerlink" title="多线程的注意点"></a>多线程的注意点</h6><p>1 线程之间是无序执行的</p>
+<p>2 主线程会等待子线程的结束而结束</p>
+<p>​        设置守护主线程</p>
+<p>​            (1)Thread(target=func,daemon=True)</p>
+<p>​            (2)my_func.setDaemon(True)</p>
+<p>3 线程之间共享全局变量</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">结论：由于线程是依附于进程的，一个进程中的所有线程都是使用的同一片内存空间，一个进程中的，线程是共享全局变量的</span><br></pre></td></tr></table></figure>
+
+<p>4 线程间共享全局变量问题</p>
+<p>​        解决方法两种：</p>
+<p>​                    1 joio</p>
+<p>​                    2 互斥锁</p>
+<h6 id="互斥锁"><a href="#互斥锁" class="headerlink" title="互斥锁"></a>互斥锁</h6><p>互斥锁：对共享数据进行绑定，保证同一时刻只能有一个线程去操作</p>
+<p><strong>互斥锁的使用</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 创建锁</span></span><br><span class="line">mutex = threading.Lock()</span><br><span class="line"><span class="comment"># 上锁</span></span><br><span class="line">mutex.acquire()</span><br><span class="line"><span class="comment"># 解锁</span></span><br><span class="line">mutex.release()</span><br></pre></td></tr></table></figure>
+
+<p>​    注意: 避免死锁</p>
+<p><strong>同一把锁只有解锁了以后才可以再上锁</strong></p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>加个好友吧<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/weixin.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -201,7 +290,7 @@ style='display:none' class="archive-article-date">
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -214,281 +303,117 @@ style='display:none' class="archive-article-date">
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://modongMD1.github.io/021/06/17/python%E5%A4%9A%E4%BB%BB%E5%8A%A1/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<span id="busuanzi_container_page_pv" 
-style='display:none' class="archive-article-date">
-    <i class="icon-smile icon"></i> 阅读数：
-    <span id="busuanzi_value_page_pv"></span>次
-</span>
-<a href="/2021/06/17/Linux%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4/" class="archive-article-date">
-  	<time datetime="2021-06-17T01:28:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-06-17</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2021/06/17/Linux%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Linux基础命令</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/06/17/Linux%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4/">Linux基础命令</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Linux命令</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Linux//" class="article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%A4%9A%E4%BB%BB%E5%8A%A1%E7%BC%96%E7%A8%8B"><span class="toc-number">1.</span> <span class="toc-text">多任务编程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-vim%E7%BC%96%E8%BE%91%E5%99%A8"><span class="toc-number">1.0.1.</span> <span class="toc-text">1 vim编辑器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%AE%89%E8%A3%85%E5%8F%8A%E5%8D%B8%E8%BD%BDLinux%E5%86%85%E8%BD%AF%E4%BB%B6"><span class="toc-number">1.0.2.</span> <span class="toc-text">2 安装及卸载Linux内软件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E5%A4%9A%E4%BB%BB%E5%8A%A1"><span class="toc-number">1.0.3.</span> <span class="toc-text">3 多任务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E5%A4%9A%E8%BF%9B%E7%A8%8B-%E5%A4%9A%E4%BB%BB%E5%8A%A1%E7%9A%84%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F"><span class="toc-number">1.0.4.</span> <span class="toc-text">4 多进程(多任务的实现方式)</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%A4%9A%E8%BF%9B%E7%A8%8B%E7%9A%84%E4%BD%BF%E7%94%A8%E6%AD%A5%E9%AA%A4"><span class="toc-number">1.0.4.0.0.1.</span> <span class="toc-text">多进程的使用步骤</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E8%BF%9B%E7%A8%8B%E7%BC%96%E5%8F%B7"><span class="toc-number">1.0.4.0.0.2.</span> <span class="toc-text">进程编号</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E8%BF%9B%E7%A8%8B%E5%90%8D%E5%AD%97-%E4%B8%8D%E9%9C%80%E8%A6%81%E8%AE%B0%E5%BF%86"><span class="toc-number">1.0.4.0.0.3.</span> <span class="toc-text">获取进程名字(不需要记忆)</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E6%89%A7%E8%A1%8C%E5%B8%A6%E6%9C%89%E5%8F%82%E6%95%B0%E7%9A%84%E4%BB%BB%E5%8A%A1"><span class="toc-number">1.0.4.0.0.4.</span> <span class="toc-text">执行带有参数的任务</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%A4%9A%E8%BF%9B%E7%A8%8B%E7%9A%84%E6%B3%A8%E6%84%8F%E7%82%B9"><span class="toc-number">1.0.4.0.0.5.</span> <span class="toc-text">多进程的注意点</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E5%A4%9A%E7%BA%BF%E7%A8%8B-%E5%A4%9A%E4%BB%BB%E5%8A%A1%E7%9A%84%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F"><span class="toc-number">1.0.5.</span> <span class="toc-text">5 多线程(多任务的实现方式)</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-number">1.0.5.0.0.1.</span> <span class="toc-text">多线程的使用</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%9A%84%E6%B3%A8%E6%84%8F%E7%82%B9"><span class="toc-number">1.0.5.0.0.2.</span> <span class="toc-text">多线程的注意点</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E4%BA%92%E6%96%A5%E9%94%81"><span class="toc-number">1.0.5.0.0.3.</span> <span class="toc-text">互斥锁</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<span id="busuanzi_container_page_pv" 
-style='display:none' class="archive-article-date">
-    <i class="icon-smile icon"></i> 阅读数：
-    <span id="busuanzi_value_page_pv"></span>次
-</span>
-<a href="/2021/06/17/Linux%E5%AE%89%E8%A3%85/" class="archive-article-date">
-  	<time datetime="2021-06-17T01:08:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-06-17</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/06/17/Linux%E5%AE%89%E8%A3%85/">Linux安装</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Ubuntu安装与使用</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Linux//" class="article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
+        
+    </div>
+</aside>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<span id="busuanzi_container_page_pv" 
-style='display:none' class="archive-article-date">
-    <i class="icon-smile icon"></i> 阅读数：
-    <span id="busuanzi_value_page_pv"></span>次
-</span>
-<a href="/2021/06/16/%E5%BF%83%E6%83%85%E5%A4%8D%E6%9D%82/" class="archive-article-date">
-  	<time datetime="2021-06-16T07:32:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-06-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/06/16/%E5%BF%83%E6%83%85%E5%A4%8D%E6%9D%82/">心情复杂</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<span id="busuanzi_container_page_pv" 
-style='display:none' class="archive-article-date">
-    <i class="icon-smile icon"></i> 阅读数：
-    <span id="busuanzi_value_page_pv"></span>次
-</span>
-<a href="/2021/06/16/Typora-PicGo%E6%96%B9%E6%A1%88/" class="archive-article-date">
-  	<time datetime="2021-06-16T07:18:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-06-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/06/16/Typora-PicGo%E6%96%B9%E6%A1%88/">Typora+PicGo方案</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Typora+PicGo</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/MarkDown//" class="article-tag-list-link color4">MarkDown</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<span id="busuanzi_container_page_pv" 
-style='display:none' class="archive-article-date">
-    <i class="icon-smile icon"></i> 阅读数：
-    <span id="busuanzi_value_page_pv"></span>次
-</span>
-<a href="/2021/06/11/MarkDown%E8%AF%AD%E6%B3%95/" class="archive-article-date">
-  	<time datetime="2021-06-11T13:14:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-06-11</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/06/11/MarkDown%E8%AF%AD%E6%B3%95/">MarkDown学习</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">markdown语法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/MarkDown//" class="article-tag-list-link color4">MarkDown</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
   
-    </div></section>
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -523,8 +448,8 @@ style='display:none' class="archive-article-date">
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
