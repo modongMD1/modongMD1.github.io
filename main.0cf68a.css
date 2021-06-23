@@ -2,7 +2,7 @@
 .mymenucontainer {
 	display:block;
 	cursor:pointer;
-	left:0;
+	left: 260px;;
 	top:0;
 	width:35px;
 	height:35px;
@@ -12,7 +12,7 @@
 .bar1 {
 	width:35px;
 	height:3px;
-	background-color:#333;
+	background-color:#ffffff;
 	margin:6px 0;
 	transition:0.4s;
 	-webkit-transform:rotate(-45deg) translate(-8px,8px);
@@ -21,7 +21,7 @@
 .bar2 {
 	width:35px;
 	height:3px;
-	background-color:#333;
+	background-color:rgb(255, 255, 255);
 	margin:6px 0;
 	transition:0.4s;
 	opacity:0;
@@ -29,7 +29,7 @@
 .bar3 {
 	width:35px;
 	height:3px;
-	background-color:#333;
+	background-color:rgb(255, 255, 255);
 	margin:6px 0;
 	transition:0.4s;
 	-webkit-transform:rotate(45deg) translate(-4px,-6px);
@@ -2993,7 +2993,7 @@ pre .css~* .id,pre .id {
 		margin-bottom: 0
 	}
 
-	.left-col {
+	.left-col,.mymenucontainer {
 		display: none
 	}
 
